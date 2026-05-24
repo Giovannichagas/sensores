@@ -59,10 +59,10 @@ $minTotal = count($total) > 0 ? min($total) : 0;
 ?>
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gráficos dos Sensores</title>
+    <title>Gráficos de los Sensores</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -138,20 +138,20 @@ $minTotal = count($total) > 0 ? min($total) : 0;
 <body>
 
 <div class="container grande">
-    <h1>Gráficos dos Sensores</h1>
+    <h1>Gráficos de los Sensores</h1>
 
     <form method="GET">
-        <label>Escolha o sensor:</label>
+        <label>Seleccione el sensor:</label>
 
         <select name="tipo_sensor">
             <option value="">Todos</option>
-            <option value="Magnetometro" <?php if($tipo=="Magnetometro") echo "selected"; ?>>Magnetômetro</option>
-            <option value="Giroscopio" <?php if($tipo=="Giroscopio") echo "selected"; ?>>Giroscópio</option>
-            <option value="Acelerometro" <?php if($tipo=="Acelerometro") echo "selected"; ?>>Acelerômetro</option>
-            <option value="MontanaRusa" <?php if($tipo=="MontanaRusa") echo "selected"; ?>>Montaña Rusa</option>
+            <option value="Magnetometro" <?php if($tipo=="Magnetometro") echo "selected"; ?>>Magnetómetro</option>
+            <option value="Giroscopio" <?php if($tipo=="Giroscopio") echo "selected"; ?>>Giroscopio</option>
+            <option value="Acelerometro" <?php if($tipo=="Acelerometro") echo "selected"; ?>>Acelerómetro</option>
+            <option value="MontanaRusa" <?php if($tipo=="MontanaRusa") echo "selected"; ?>>Montaña rusa</option>
         </select>
 
-        <label>Quantidade:</label>
+        <label>Cantidad:</label>
 
         <select name="limite">
             <option value="50" <?php if($limite==50) echo "selected"; ?>>50 registros</option>
@@ -165,57 +165,57 @@ $minTotal = count($total) > 0 ? min($total) : 0;
 
     <div class="cards-resumo">
         <div class="card-resumo">
-            <h3>Média Total</h3>
+            <h3>Media total</h3>
             <p><?php echo number_format($mediaTotal, 2, ",", "."); ?></p>
         </div>
 
         <div class="card-resumo">
-            <h3>Valor Máximo</h3>
+            <h3>Valor máximo</h3>
             <p><?php echo number_format($maxTotal, 2, ",", "."); ?></p>
         </div>
 
         <div class="card-resumo">
-            <h3>Valor Mínimo</h3>
+            <h3>Valor mínimo</h3>
             <p><?php echo number_format($minTotal, 2, ",", "."); ?></p>
         </div>
     </div>
 
     <div class="grid-graficos">
         <div class="box-grafico">
-            <h2>Evolução dos sensores</h2>
+            <h2>Evolución de los sensores</h2>
             <p class="legenda-grafico">
-                Mostra como os valores dos eixos X, Y, Z e Total variam ao longo do tempo.
+                Muestra cómo los valores de los ejes X, Y, Z y Total varían a lo largo del tiempo.
             </p>
             <canvas id="graficoLinha"></canvas>
         </div>
 
         <div class="box-grafico">
-            <h2>Comparação dos eixos</h2>
+            <h2>Comparación de los ejes</h2>
             <p class="legenda-grafico">
-                Compara a média dos valores dos eixos X, Y, Z e Total no conjunto de dados filtrado.
+                Compara la media de los valores de los ejes X, Y, Z y Total en el conjunto de datos filtrado.
             </p>
             <canvas id="graficoBarras"></canvas>
         </div>
 
         <div class="box-grafico">
-            <h2>Dispersão do valor total</h2>
+            <h2>Dispersión del valor total</h2>
             <p class="legenda-grafico">
-                Mostra a distribuição dos valores totais e ajuda a identificar picos ou valores fora do padrão.
+                Muestra la distribución de los valores totales y ayuda a identificar picos o valores fuera de lo habitual.
             </p>
             <canvas id="graficoDispersao"></canvas>
         </div>
 
         <div class="box-grafico">
-            <h2>Distribuição das médias</h2>
+            <h2>Distribución de las medias</h2>
             <p class="legenda-grafico">
-                Apresenta a participação média de cada eixo em relação ao total dos dados selecionados.
+                Presenta la participación media de cada eje en relación con el total de los datos seleccionados.
             </p>
             <canvas id="graficoPizza"></canvas>
         </div>
     </div>
 
     <br>
-    <a href="index.php">Voltar</a>
+    <a href="index.php">Volver</a>
 </div>
 
 <script>
@@ -236,9 +236,9 @@ new Chart(document.getElementById('graficoLinha'), {
     data: {
         labels: tempos,
         datasets: [
-            { label: 'Eixo X', data: eixoX },
-            { label: 'Eixo Y', data: eixoY },
-            { label: 'Eixo Z', data: eixoZ },
+            { label: 'Eje X', data: eixoX },
+            { label: 'Eje Y', data: eixoY },
+            { label: 'Eje Z', data: eixoZ },
             { label: 'Total', data: total }
         ]
     }
@@ -247,9 +247,9 @@ new Chart(document.getElementById('graficoLinha'), {
 new Chart(document.getElementById('graficoBarras'), {
     type: 'bar',
     data: {
-        labels: ['Eixo X', 'Eixo Y', 'Eixo Z', 'Total'],
+        labels: ['Eje X', 'Eje Y', 'Eje Z', 'Total'],
         datasets: [{
-            label: 'Média dos valores',
+            label: 'Media de los valores',
             data: [
                 calcularMedia(eixoX),
                 calcularMedia(eixoY),
@@ -264,7 +264,7 @@ new Chart(document.getElementById('graficoDispersao'), {
     type: 'scatter',
     data: {
         datasets: [{
-            label: 'Dispersão do Total',
+            label: 'Dispersión del Total',
             data: total.map((valor, index) => ({
                 x: index + 1,
                 y: valor
@@ -276,9 +276,9 @@ new Chart(document.getElementById('graficoDispersao'), {
 new Chart(document.getElementById('graficoPizza'), {
     type: 'doughnut',
     data: {
-        labels: ['Eixo X', 'Eixo Y', 'Eixo Z', 'Total'],
+        labels: ['Eje X', 'Eje Y', 'Eje Z', 'Total'],
         datasets: [{
-            label: 'Distribuição das médias',
+            label: 'Distribución de las medias',
             data: [
                 calcularMedia(eixoX),
                 calcularMedia(eixoY),

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Sistema de Sensores</title>
@@ -9,28 +9,30 @@
 
 <div class="container">
     <h1>Sistema de Sensores</h1>
-    <p>Importación de datos CSV generados por el Physics Toolbox Suite</p>
+    <p>Importación de datos CSV generados por Physics Toolbox Suite</p>
 
     <form action="upload.php" method="POST" enctype="multipart/form-data">
         <label>Tipo de sensor:</label>
         <select name="tipo_sensor" required>
-            <option value="">Selecione</option>
-            <option value="Magnetometro">Magnetômetro</option>
-            <option value="Giroscopio">Giroscópio</option>
-            <option value="Acelerometro">Acelerômetro</option>
-            <option value="Acelerometro">Motaña Rusa</option>
+            <option value="">Seleccione</option>
+            <option value="Magnetómetro">Magnetómetro</option>
+            <option value="Giroscopio">Giroscopio</option>
+            <option value="Acelerómetro">Acelerómetro</option>
+            <option value="Montaña Rusa">Montaña rusa</option>
         </select>
 
-        <label>Arquivo CSV:</label>
+        <label>Archivo CSV:</label>
         <input type="file" name="arquivo_csv" accept=".csv" required>
 
         <button type="submit">Importar CSV</button>
     </form>
 
-    <a href="resultados.php">Ver resultados</a>
-    <a href="gerenciar.php">Gerenciar dados</a>
-    <a href="dados.php">Visualizar dados armazenados</a>
-    <a href="graficos.php">Ver gráficos dos sensores</a>
+    <div class="menu-botones">
+        <a href="resultados.php" class="boton-menu">Ver resultados</a>
+        <a href="gerenciar.php" class="boton-menu">Gestionar datos</a>
+        <a href="dados.php" class="boton-menu">Visualizar datos almacenados</a>
+        <a href="graficos.php" class="boton-menu">Ver gráficos de los sensores</a>
+    </div>
 </div>
 
 </body>

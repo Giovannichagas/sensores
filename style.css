@@ -122,3 +122,27 @@ th {
     background: #1f3c88;
     color: white;
 }
+
+.menu-botones {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.boton-menu {
+    display: block;
+    text-align: center;
+    padding: 12px 18px;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-menu:hover {
+    background-color: #1e40af;
+    transform: scale(1.02);
+}

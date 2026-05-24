@@ -24,49 +24,49 @@ if ($tipo != "") {
 ?>
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Resultados dos Sensores</title>
+    <title>Resultados de los Sensores</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <h1>Resultados dos Sensores</h1>
+    <h1>Resultados de los Sensores</h1>
 
     <?php if (isset($_GET["sucesso"])): ?>
         <div class="mensagem-sucesso">
-            CSV importado com sucesso! 
-            <?php echo intval($_GET["linhas"]); ?> linhas foram salvas no banco de dados.
+            ¡CSV importado correctamente! 
+            <?php echo intval($_GET["linhas"]); ?> líneas se han guardado en la base de datos.
         </div>
     <?php endif; ?>
 
     <form method="GET">
-        <label>Escolha o sensor:</label>
+        <label>Seleccione el sensor:</label>
         <select name="tipo_sensor" required>
-            <option value="">Selecione</option>
-            <option value="Magnetometro">Magnetômetro</option>
-            <option value="Giroscopio">Giroscópio</option>
-            <option value="Acelerometro">Acelerômetro</option>
-            <option value="Acelerometro">Motaña Rusa</option>
+            <option value="">Seleccione</option>
+            <option value="Magnetometro">Magnetómetro</option>
+            <option value="Giroscopio">Giroscopio</option>
+            <option value="Acelerometro">Acelerómetro</option>
+            <option value="MontanaRusa">Montaña rusa</option>
         </select>
 
-        <button type="submit">Buscar médias</button>
+        <button type="submit">Buscar medias</button>
     </form>
 
     <?php if ($resultado): ?>
         <div class="card">
             <h2><?php echo htmlspecialchars($tipo); ?></h2>
             <p>Total de registros: <?php echo $resultado["total_registros"]; ?></p>
-            <p>Média eixo X: <?php echo number_format($resultado["media_x"], 4, ",", "."); ?></p>
-            <p>Média eixo Y: <?php echo number_format($resultado["media_y"], 4, ",", "."); ?></p>
-            <p>Média eixo Z: <?php echo number_format($resultado["media_z"], 4, ",", "."); ?></p>
-            <p>Média total: <?php echo number_format($resultado["media_total"], 4, ",", "."); ?></p>
+            <p>Media eje X: <?php echo number_format($resultado["media_x"], 4, ",", "."); ?></p>
+            <p>Media eje Y: <?php echo number_format($resultado["media_y"], 4, ",", "."); ?></p>
+            <p>Media eje Z: <?php echo number_format($resultado["media_z"], 4, ",", "."); ?></p>
+            <p>Media total: <?php echo number_format($resultado["media_total"], 4, ",", "."); ?></p>
         </div>
     <?php endif; ?>
 
-    <a href="index.php">Voltar</a>
+    <a href="index.php">Volver</a>
 </div>
 
 </body>

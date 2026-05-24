@@ -35,13 +35,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ");
 
                     if (!$stmt) {
-                        die("Erro no prepare: " . $conn->error);
+                        die("Error en prepare: " . $conn->error);
                     }
 
                     $stmt->bind_param("sddddd", $tipo_sensor, $tempo, $x, $y, $z, $total);
 
                     if (!$stmt->execute()) {
-                        die("Erro ao inserir: " . $stmt->error);
+                        die("Error al insertar: " . $stmt->error);
                     }
 
                     $linhas_importadas++;
@@ -51,17 +51,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             fclose($handle);
 
             header("Location: resultados.php?tipo_sensor=" . urlencode($tipo_sensor) . "&sucesso=1&linhas=" . $linhas_importadas);
-exit;
+            exit;
 
         } else {
-            echo "Erro ao abrir o arquivo CSV.";
+            echo "Error al abrir el archivo CSV.";
         }
 
     } else {
-        echo "Erro no envio do arquivo.";
+        echo "Error al enviar el archivo.";
     }
 
 } else {
-    echo "Acesse esta página pelo formulário de upload.";
+    echo "Acceda a esta página desde el formulario de subida.";
 }
 ?>

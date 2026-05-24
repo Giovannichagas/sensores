@@ -11,9 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("s", $tipo_sensor);
 
         if ($stmt->execute()) {
-            $mensagem = "Dados do sensor " . htmlspecialchars($tipo_sensor) . " apagados com sucesso!";
+            $mensagem = "Datos del sensor " . htmlspecialchars($tipo_sensor) . " eliminados correctamente.";
         } else {
-            $mensagem = "Erro ao apagar os dados.";
+            $mensagem = "Error al eliminar los datos.";
         }
     }
 }
@@ -26,16 +26,16 @@ $consulta = $conn->query("
 ?>
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gerenciar Dados dos Sensores</title>
+    <title>Gestionar Datos de los Sensores</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <h1>Gerenciar Dados</h1>
+    <h1>Gestionar Datos</h1>
 
     <?php if ($mensagem != ""): ?>
         <div class="mensagem-sucesso">
@@ -43,7 +43,7 @@ $consulta = $conn->query("
         </div>
     <?php endif; ?>
 
-    <h2>Registros armazenados</h2>
+    <h2>Registros almacenados</h2>
 
     <?php if ($consulta->num_rows > 0): ?>
         <table>
@@ -60,24 +60,24 @@ $consulta = $conn->query("
             <?php endwhile; ?>
         </table>
     <?php else: ?>
-        <p>Nenhum dado armazenado.</p>
+        <p>No hay datos almacenados.</p>
     <?php endif; ?>
 
-    <form method="POST" onsubmit="return confirm('Tem certeza que deseja apagar os dados deste sensor?');">
-        <label>Escolha o sensor para apagar:</label>
+    <form method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar los datos de este sensor?');">
+        <label>Seleccione el sensor que desea eliminar:</label>
 
         <select name="tipo_sensor" required>
-            <option value="">Selecione</option>
-            <option value="Magnetometro">Magnetômetro</option>
-            <option value="Giroscopio">Giroscópio</option>
-            <option value="Acelerometro">Acelerômetro</option>
-            <option value="Acelerometro">Motaña Rusa</option>
+            <option value="">Seleccione</option>
+            <option value="Magnetometro">Magnetómetro</option>
+            <option value="Giroscopio">Giroscopio</option>
+            <option value="Acelerometro">Acelerómetro</option>
+            <option value="MontanaRusa">Montaña rusa</option>
         </select>
 
-        <button type="submit" class="btn-danger">Apagar dados do sensor</button>
+        <button type="submit" class="btn-danger">Eliminar datos del sensor</button>
     </form>
 
-    <a href="index.php">Voltar para importação</a>
+    <a href="index.php">Volver a la importación</a>
     <a href="resultados.php">Ver resultados</a>
 </div>
 

@@ -23,40 +23,40 @@ $resultado = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Dados dos Sensores</title>
+    <title>Datos de los Sensores</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container grande">
-    <h1>Dados dos Sensores</h1>
+    <h1>Datos de los Sensores</h1>
 
     <form method="GET">
-        <label>Escolha o sensor:</label>
+        <label>Seleccione el sensor:</label>
         <select name="tipo_sensor">
             <option value="">Todos</option>
-            <option value="Magnetometro" <?php if($tipo=="Magnetometro") echo "selected"; ?>>Magnetômetro</option>
-            <option value="Giroscopio" <?php if($tipo=="Giroscopio") echo "selected"; ?>>Giroscópio</option>
-            <option value="Acelerometro" <?php if($tipo=="Acelerometro") echo "selected"; ?>>Acelerômetro</option>
-            <option value="Acelerometro" <?php if($tipo=="MontanaRusa") echo "selected"; ?>>Motaña Rusa</option>
+            <option value="Magnetómetro" <?php if($tipo=="Magnetómetro") echo "selected"; ?>>Magnetómetro</option>
+            <option value="Giroscopio" <?php if($tipo=="Giroscopio") echo "selected"; ?>>Giroscopio</option>
+            <option value="Acelerómetro" <?php if($tipo=="Acelerómetro") echo "selected"; ?>>Acelerómetro</option>
+            <option value="Montaña Rusa" <?php if($tipo=="Montaña Rusa") echo "selected"; ?>>Montaña rusa</option>
         </select>
 
-        <button type="submit">Visualizar dados</button>
+        <button type="submit">Visualizar datos</button>
     </form>
 
     <table>
         <tr>
             <th>ID</th>
             <th>Sensor</th>
-            <th>Tempo</th>
-            <th>Eixo X</th>
-            <th>Eixo Y</th>
-            <th>Eixo Z</th>
+            <th>Tiempo</th>
+            <th>Eje X</th>
+            <th>Eje Y</th>
+            <th>Eje Z</th>
             <th>Total</th>
-            <th>Data importação</th>
+            <th>Fecha de importación</th>
         </tr>
 
         <?php while($row = $resultado->fetch_assoc()): ?>
@@ -73,7 +73,7 @@ $resultado = $stmt->get_result();
         <?php endwhile; ?>
     </table>
 
-    <a href="index.php">Voltar</a>
+    <a href="index.php">Volver</a>
 </div>
 
 </body>
